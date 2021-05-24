@@ -1,0 +1,62 @@
+# =========================== Basic Settings ===========================
+# machine info
+num_gpus_per_job: 8  # number of gpus each job need
+num_cpus_per_job: 8  # number of gpus each job need
+num_hosts_per_job: 1 
+memory_per_job: 32  # number of gpus each job need
+gpu_type: 'nvidia-tesla-v100'
+
+# parameters
+name: igstec_cv_ratio # igstec_cv_9_contd # any name
+model_restore: '' # 'logs/ebs16x8_cv_5_contd'
+dataset: igstec_cv_5 # igstec_cv_9 
+random_crop: False  # Set to false when dataset is 'celebahq', meaning only resize the images to img_shapes, instead of crop img_shapes from a larger raw image. This is useful when you train on images with different resolutions like places2. In these cases, please set random_crop to true.
+val: False  # true if you want to view validation results in tensorboard
+log_dir: 'logs/igstec_cv5_0.1' # 'logs/ebs16x8_cv_9_contd'  # logs/full_model_places2_multigpu
+
+gan: 'sngan'
+gan_loss_alpha: 1
+gan_with_mask: True
+discounted_mask: True
+random_seed: False
+padding: 'SAME'
+MIT_mask: False # whether to use MIT mask instead of reg + irreg (random brush) mask
+
+# training
+_max_epochs: 2000 
+save_every_epochs: 200 
+viz_max_out: 10
+
+# data
+data_flist:
+  igstec_bin: [
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_bin/train_12.flist',
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_bin/validation_12.flist' 
+  ]
+  igstec_bin_LT_18: [
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_bin_LT_18/train.flist',
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_bin_LT_18/validation.flist'
+  ]
+  igstec_cv_5: [
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_cv_ratio/5/0.1/train.flist',
+    '/home/yangpan/projs/generative_inpainting/data_flist/igstec_cv_ratio/5/0.1/validation.flist'
+  ]
+
+static_view_size: 30
+img_shapes: [64, 64, 3] # [256, 256, 3]
+height: 32 # 128
+width: 32 # 128
+max_delta_height: 8 # 32
+max_delta_width: 8 # 32
+batch_size: 16
+vertical_margin: 0
+horizontal_margin: 0
+
+# loss
+ae_loss: True
+l1_loss: True
+l1_loss_alpha: 1.
+
+# to tune
+guided: False
+edge_threshold: 0.6

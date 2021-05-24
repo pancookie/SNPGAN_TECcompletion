@@ -1,0 +1,4 @@
+# modify the year 
+# python batch_test.py --flist '/data/Yang/testcase_filelists/2001/2001.txt' --checkpoint_dir '/home/yangpan/projs/gi/logs/ebs16x8_cv_3' --path_output '/data/Yang/cross-validation'
+
+python batch_test.py --flist '/data/Yang/testcase_filelists/cv_7.txt' --checkpoint_dir '/home/yangpan/projs/gi/logs/igs_15min_64_same' --path_output '/data/Yang/snp_gan_inp_res'
