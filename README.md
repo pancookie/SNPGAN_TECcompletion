@@ -8,9 +8,11 @@ Environment: Python 3, and the package list can be found `/gi/snp.yml`
 
 ## Database
 [MIT-TEC](http://cedar.openmadrigal.org/)
+
 [IGS-TEC](https://cdaweb.gsfc.nasa.gov/index.html/)
 
 The re-binned data for plotting the polar graphs:
+
 [event2016_lt](https://drive.google.com/file/d/1b2mUalzr4sadcNqShXXu1u1umY8J5VGh/view?usp=sharing)
 [event2016_lt_mask](https://drive.google.com/file/d/16mXhGLhF4aHQa6ZOQyDNSl2IRUVAAnu-/view?usp=sharing)
 
